@@ -7,16 +7,13 @@ public class Cell implements Drawable{
 	
 	private int x;
 	private int y;
-
 	private int cellSize;
-	
 	
 	public Cell(int x, int y, int size) {
 		this.x = x;
 		this.y = y;
 		this.cellSize = size;
 	}
-	
 	//11. Complete tue liveOrDie method
 	//    It sets isAlive to true or false based on the neighbors and 
 	//the rules of the game
@@ -51,7 +48,9 @@ public class Cell implements Drawable{
 	//    draws empty square if cell is dead
 	@Override
 	public void draw(Graphics g) {
-	
+	if(isAlive) {
+		g.drawRect(x, y, width, height); //fix dimensions
+	}
 		
 		
 		
