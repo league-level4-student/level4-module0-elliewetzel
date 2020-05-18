@@ -22,10 +22,12 @@ public class MazeMaker{
 		maze = new Maze(width, height);
 		
 		//4. select a random cell to start
+		int x = randGen.nextInt(6);
+		iny y = randGen.nextInt(6);
 		
-		
+		Cell l = new Cell(x, y);		
 		//5. call selectNextPath method with the randomly selected cell
-		
+		selectNextPath(l);
 		
 		return maze;
 	}
@@ -33,11 +35,13 @@ public class MazeMaker{
 	//6. Complete the selectNextPathMethod
 	private static void selectNextPath(Cell currentCell) {
 		//A. mark cell as visited
-
+		currentCell.hasBeenVisited();
 		//B. Get an ArrayList of unvisited neighbors using the current cell and the method below
-		
+		getUnvisitedNeighbors(currentCell);
 		//C. if has unvisited neighbors,
-		
+		if(getUnvisitedNeighbors(currrectCell) > 0) {
+			
+		}
 			//C1. select one at random.
 			
 			//C2. push it to the stack

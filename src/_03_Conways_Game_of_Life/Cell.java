@@ -49,7 +49,7 @@ public class Cell implements Drawable{
 	@Override
 	public void draw(Graphics g) {
 	if(isAlive) {
-		g.drawRect(x, y, width, height); //fix dimensions
+		g.drawRect(x, y, cellSize, cellSize); //fix dimensions
 	}
 		
 		
