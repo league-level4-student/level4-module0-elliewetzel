@@ -55,8 +55,8 @@ public class MazeMaker{
 			//C5. call the selectNextPath method with the current cell
 			
 		//D. if all neighbors are visited
-		if(c.size() <= 0) {
-			if(!c.isEmpty()) {
+		if(b.size() <= 0) {
+			if(!b.isEmpty()) {
 				currentCell = uncheckedCells.pop();
 				selectNextPath(currentCell);
 			}
@@ -66,7 +66,6 @@ public class MazeMaker{
 				// D1b. make that the current cell
 				// D1c. call the selectNextPath method with the current cell			
 	}
-
 	//7. Complete the remove walls method.
 	//   This method will check if c1 and c2 are adjacent.
 	//   If they are, the walls between them are removed.
@@ -104,11 +103,20 @@ public class MazeMaker{
 			}
 		}
 		if(c.getX()!=width-1) {
-			
+			if(!maze.e[c.getX()+1][c.getY()].hasBeenVisited()) {
+				a.add(maze.e[c.getX()+1][c.getY()]);
+			}
 		}
-		
-		
-		
-		return null;
+		if(c.getY() != 0) {
+			 if(!maze.e[c.getX()][c.getY()-1].hasBeenVisited()) {
+				 a.add(maze.e[c.getX()][c.getY()-1]);
+			 }
+		}
+		if(c.getY() != height-1) {
+			if(!maze.e[c.getX()][c.getY()+1].hasBeenVisited()) {
+				a.add(maze.e[c.getX()][c.getY()+1]);
+			}
+		}
+		return a;
 	}
 }

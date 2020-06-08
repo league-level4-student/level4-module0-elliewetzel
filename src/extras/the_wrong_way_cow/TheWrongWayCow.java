@@ -46,7 +46,63 @@ public class TheWrongWayCow {
     public static int[] findWrongWayCow(final char[][] field) {
         // Fill in the code to return the x,y coordinate position of the
         // head (letter 'c') of the wrong way cow!
-        
+    	int[] Downend = new int[2];
+    	int[] Rightend = new int[2];
+    	int[] Upend = new int[2];
+    	int[] Leftend = new int[2];
+    	int CowUp = 0;
+    	int CowDown = 0;
+    	int CowRight = 0;
+    	int CowLeft = 0;
+    	
+        for(int i = 0; i<field.length;i++) {
+        	for(int j = 0; j<field[0].length;j++) {
+        		if(j<field[0].length-2&&field[i][j] == 'c'&&field[i][j+1] == 'o'&&field[i][j+2] == 'w') {
+        			CowRight++;
+        			Rightend[0] = j;
+        			Rightend[1] = i;
+        		
+        		}
+        		else if(j>1&&field[i][j] == 'c'&&field[i][j-1] == 'o'&&field[i][j-2] == 'w') {
+        			CowLeft++;
+        			Leftend[0] = j;
+        			Leftend[1] = i;
+        			
+        		}
+        		else if(i>1&&field[i][j] == 'c'&&field[i-1][j] == 'o'&&field[i-2][j] == 'w') {
+        			CowUp++;
+        			Upend[0] = j;
+        			Upend[1] = i;
+        			
+        		}
+        		else if(i<field.length-2&&field[i][j] == 'c'&&field[i+1][j] == 'o'&&field[i+2][j] == 'w') {
+        			CowDown++;
+        			Downend[0] = j;
+        			Downend[1] = i;
+        			
+        		}
+        	}
+        }
+        System.out.println(CowUp);
+        System.out.println(CowDown);
+        System.out.println(CowLeft);
+        System.out.println(CowRight);
+        if(CowDown==1) {
+        	System.out.println(Downend[0]+", "+Downend[1]);
+        	return Downend;
+        }
+        else if(CowUp==1) {
+        	System.out.println(Upend[0]+", "+Upend[1]);
+        	return Upend;
+        }
+        else if(CowLeft==1) {
+        	System.out.println(Leftend[0]+", "+Leftend[1]);
+        	return Leftend;
+        }
+        else if(CowRight==1) {
+        	System.out.println(Rightend[0]+", "+Rightend[1]);
+        	return Rightend;
+        }
         return null;
     }
 }
